@@ -1,5 +1,13 @@
 #box {
     width: 150px;
     height: 150px;
-    background-color: brown
+    background-color: brown;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dragging {
+    opacity: 0.5;
 }
