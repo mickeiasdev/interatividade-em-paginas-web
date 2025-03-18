@@ -4,10 +4,10 @@
 // exiba uma mensagem dizendo "Você pressionou a letra A". Caso contrário, exiba uma mensagem que diga
 // "Você pressionou uma letra diferente da solicitada"
 
-const nameUser = document.getElementById('name');
+const name = document.getElementById('name');
 const msg = document.getElementById('msg');
 
-nameUser.addEventListener("keydown", function(event) {
+name.addEventListener("keydown", function(event) {
     if (event.key === "a" || event.key === "A") {
         msg.textContent = 'Você pressionou a letra A';
     } else {
