@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="box"></div>
-    <p id="num"></p>
+    <p id="number"></p>
     <script>
         // 1 Caixa Interativa com Hover e Clique
 
@@ -30,7 +30,7 @@
         // sobre ela (hover) e que exiba uma mensagem quando o mouse é clicado dentro dessa mesma caixa.
 
         let box = document.getElementById('box');
-        let num = document.getElementById('num');
+        let number = document.getElementById('number');
         let count = 0;
 
         box.classList.add('brown');
@@ -45,7 +45,7 @@
         });
         box.addEventListener('click', () => {
             count++;
-            num.innerText = `Número de cliques: ${count}`;
+            number.innerText = `Número de cliques: ${count}`;
         });
     </script>
 </body>
