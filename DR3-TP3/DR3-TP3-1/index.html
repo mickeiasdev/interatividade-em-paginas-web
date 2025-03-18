@@ -5,10 +5,48 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Exercicio 1</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+        }
+
+        .brown {
+            background-color: brown;
+        }
+
+        .darkslateblue {
+            background-color: darkslateblue;
+        }
+    </style>
 </head>
 <body>
-    
+    <div id="box"></div>
+    <p id="num"></p>
+    <script>
+        // 1 Caixa Interativa com Hover e Clique
+
+        // Crie no arquivo HTML a exibição de uma caixa colorida que muda de cor quando o mouse passa
+        // sobre ela (hover) e que exiba uma mensagem quando o mouse é clicado dentro dessa mesma caixa.
+
+        let box = document.getElementById('box');
+        let num = document.getElementById('num');
+        let count = 0;
+
+        box.classList.add('brown');
+
+        box.addEventListener('mouseover', () => {
+                box.classList.remove('brown');
+                box.classList.add('darkslateblue');
+        });
+        box.addEventListener('mouseout', () => {
+                box.classList.remove('darkslateblue');
+                box.classList.add('brown');
+        });
+        box.addEventListener('click', () => {
+            count++;
+            num.innerText = `Número de cliques: ${count}`;
+        });
+    </script>
 </body>
 </html>
