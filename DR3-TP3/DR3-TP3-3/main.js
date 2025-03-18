@@ -12,5 +12,5 @@ letter.addEventListener("focus", () => {
 });
 
 letter.addEventListener("change", () => {
-    response.innerHTML = `Você selecionou: ${letter.value}`;
+    response.innerHTML = `Você selecionou a opção: ${letter.value}`;
 });
