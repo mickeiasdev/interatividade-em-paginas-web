@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+    font-family: Verdana, sans-serif;
+}
+
+input, textarea {
+    width: 100%;
+    font-size: large;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+}
+
+input:focus, textarea:focus {
+    background-color: gainsboro;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+.error {
+    color: red; font-size: 14px;
+}

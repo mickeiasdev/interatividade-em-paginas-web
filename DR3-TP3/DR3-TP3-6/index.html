@@ -6,9 +6,20 @@
     <title>Exercicio 6</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <script src='main.js' defer></script>
 </head>
 <body>
-    
+    <form action="#" id="form">
+        <label for="name">Nome:</label><span class="error" id="nameError"></span>
+        <input type="text" name="name" id="name">
+
+        <label for="email">E-mail:</label><span class="error" id="emailError"></span>
+        <input type="email" name="email" id="email">
+
+        <label for="message">Mensagem:</label><span class="error" id="messageError"></span>
+        <textarea name="message" id="message"></textarea>
+        
+        <input type="submit" value="Enviar">
+    </form>
 </body>
 </html>
