@@ -1,7 +1,9 @@
-// quando o usuario clicar em enviar respostas,
-// tenho tenho que pegar o fieldsete e verificar qual input da div .option estar com checked.
-// se o input estiver com checked e a classe dele for igual a correct, eu encremento mais
-// a variavel score. no final eu mostro o score do usuario em um alerta.
+// Formulário de Quiz com Soma de Pontuação
+
+// Crie no arquivo html um formulário, contendo três questões de múltipla escolha
+// usando radio button, cada pergunta/questão deverá ter 4 respostas para o usuário
+// escolher sua opção. Crie também um botão que ao ser apertado, verifique os campos 
+// marcados e a cada resposta correta, some 1 à pontuação total. Exiba a pontuação em um alerta.
 
 const form = document.querySelector('form');
 const options = document.querySelectorAll('.option');
