@@ -9,13 +9,6 @@
     <script src='main.js' defer></script>
 </head>
 <body>
-    <!-- Formulário com Aceitação de Termos e Condições
-
-    Crie no arquivo html um formulário e nele crie um título e um parágrafo,
-    simulando um campo obrigatório que deve ser lido e aceito. Para isso, crie
-    um campo de “checkbox”, um botão e faça com que esse form só seja enviado
-    se o usuário marcar o checkbox, aceitando assim os “termos e condições”.
-    Mostre um alerta ao usuário se puder ou não enviar o form. -->
     <form action="#">
         <fieldset>
             <legend>Cadastro</legend>
@@ -26,9 +19,9 @@
             <label for="password">Senha:</label>
             <input type="password" name="password" id="password" required><br><br>
             <p>Leia os termos e condições</p>
-            <input type="checkbox" name="terms" id="terms" required>
-            <label for="terms">Aceito os termos e condições</label><br><br>
-            <input type="submit" value="Cadastrar">
+            <input type="checkbox" name="checkbox" id="checkbox" required>
+            <label for="checkbox">Aceito os termos e condições</label><br><br>
+            <input type="submit" value="Cadastrar" id="submit">
         </fieldset>
     </form>
 </body>
