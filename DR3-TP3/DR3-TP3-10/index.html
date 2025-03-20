@@ -6,9 +6,71 @@
     <title>Exercicio 10</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <script src='main.js' defer></script>
 </head>
 <body>
-    
+    <form action="#">
+        <fieldset>
+            <legend>Questão 1</legend>
+            <p>O que significa DOM em JavaScript?</p>
+            <div class="optionBox">
+                <input type="radio" name="resp1" id="resp1-1" class="option correct">
+                <label for="resp1-1">Document Object Model</label>
+            </div>
+            <div class="optionBox">
+                <input type="radio" name="resp1" id="resp1-2" class="option">
+                <label for="resp1-2">Data Object Manager</label>
+            </div>
+            <div class="optionBox">
+                <input type="radio" name="resp1" id="resp1-3" class="option">
+                <label for="resp1-3">Dynamic Object Manipulation</label>
+            </div>
+            <div class="optionBox">
+                <input type="radio" name="resp1" id="resp1-4" class="option">
+                <label for="resp1-4">Document Order Method</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Questão 2</legend>
+            <p>Qual método é usado para selecionar um elemento pelo ID no DOM?</²p>
+            <div class="optionBox">
+                <input type="radio" name="resp2" id="resp2-1" class="option">
+                <label for="resp2-1">document.getElementByTagName()</label>
+            </div>
+            <div class="optionBox">
+                <input type="radio" name="resp2" id="resp2-2" class="option">
+                <label for="resp2-2">document.querySelectorAll()</label>
+            </div>
+            <div class="optionBox">
+                <input type="radio" name="resp2" id="resp2-3" class="option correct">
+                <label for="resp2-3">document.getElementById()</label>
+            </div>
+            <div class="optionBox">
+                <input type="radio" name="resp2" id="resp2-4" class="option">
+                <label for="resp2-4">document.getElementsByClassName()</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Questão 3</legend>
+            <p>O que o método "addEventListener()" faz?</p>
+            <div class="optionBox">
+                <input type="radio" name="resp3" id="resp3-1" class="option">
+                <label for="resp3-1">Adiciona um estilo CSS ao elemento</label>
+            </div>
+            <div class="optionBox">
+                <input type="radio" name="resp3" id="resp3-2" class="option">
+                <label for="resp3-2">Remove um elemento do DOM</label>
+            </div>
+            <div class="optionBox">
+                <input type="radio" name="resp3" id="resp3-3" class="option correct">
+                <label for="resp3-3">Adiciona um ouvinte de evento ao elemento</label>
+            </div>
+            <div class="optionBox">
+                <input type="radio" name="resp3" id="resp3-4" class="option">
+                <label for="resp3-4">Duplica o conteúdo do elemento</label>
+            </div>
+        </fieldset>
+        <button type="submit" id="submit">Enviar resposta</button>
+    </form>
 </body>
 </html>
