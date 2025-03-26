@@ -161,9 +161,5 @@ const entradas = {
         } else {
             return
         }
-    },
-
-    solitarNumero: function(num) {
-        
     }
 }
