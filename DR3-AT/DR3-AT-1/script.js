@@ -4,18 +4,27 @@
 // Crie um objeto chamado Pessoa que tenha essas propriedades
 // e defina o valor das propriedades conforme os valores digitados pelo usuário.
 
-function solicitarSexo() {
-    const sexo = prompt("Digite seu sexo: [exemplo@dominio.com]")
-
-    if(validacoes.validarCancelar(sexo)){
-        if(validacoes.validarVazio(sexo) && validacoes.validarSexo(sexo)){
-            alert(sexo)
-        } else {
-            return solicitarSexo()
-        }
-    } else {
-        return
-    }
+const pessoa = {
+    nome: this.nome,
+    idade: this.idade,
+    email: this.email,
+    sexo: this.sexo,
 }
 
-solicitarSexo()
+const nome = entradas.solicitarNome();
+if(nome){
+    const idade = entradas.solicitarIdade()
+    if(idade) {
+        const email = entradas.solicitarEmail()
+        if(email) {
+            const sexo = entradas.solicitarSexo()
+            if(sexo) {
+                alert(`
+                    Nome: ${pessoa.nome}
+                    Idade: ${pessoa.idade}
+                    Email: ${pessoa.email}
+                    Sexo: ${pessoa.sexo}`);  
+            }
+        }
+    }
+}

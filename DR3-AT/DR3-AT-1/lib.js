@@ -76,12 +76,33 @@ const validacoes = {
         return true
     },
 
-    validarSexo: function() {
-        
+    validarSexo: function(valor) {
+        this.validarVazio(valor);
+        this.validarTamanhoMax(valor, 1)    
+        if(valor !== "m" && valor !== "f") {
+            alert('Valor invalido.')
+            return false
+        }
+        return true
+    },
+
+    corrigirNome: function(nome) {
+        // Isso faz com que qualquer quantidade de espaços seguidos seja considerada como um único separador.
+        const nomes = nome.trim().split(/\s+/).map(item => item.trim());
+    
+        let nomesCorrigidos = nomes.map((item, i) => {
+            if(["da", "de", "do"].includes(item.toLowerCase()) && i !== 0) {
+                return item.toLowerCase();
+            } else {
+                return item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
+            }
+        })
+    
+        alert(nomesCorrigidos.join(" "));
     }
 }
 
-//--------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------
 
 const entradas = {
     solicitarNome: function() {
@@ -89,9 +110,10 @@ const entradas = {
 
         if(validacoes.validarCancelar(nome)) {
             if(validacoes.validarVazio(nome) && validacoes.validarTamanhoMin(nome)) {
+                validacoes.corrigirNome()
                 return nome
             } else {
-                return solicitarNome()
+                return entradas.solicitarNome()
             }
         } else {
             return;
@@ -105,7 +127,7 @@ const entradas = {
             if(validacoes.validarVazio(idade) && validacoes.validarNumeroInteiroPositivo(idade)) {
                 return idade
             } else {
-                return solicitarIdade()
+                return entradas.solicitarIdade()
             }
         } else {
             return;
@@ -117,9 +139,10 @@ const entradas = {
     
         if(validacoes.validarCancelar(email)){
             if(validacoes.validarVazio(email) && validacoes.validarEmail(email)){
-                alert(email)
+                email.charAt(0).toLocaleUpperCase()
+                return email
             } else {
-                return solicitarEmail()
+                return entradas.solicitarEmail()
             }
         } else {
             return
@@ -127,6 +150,16 @@ const entradas = {
     },
 
     solicitarSexo: function() {
+        const sexo = prompt("Digite seu sexo: [M/F]").toUpperCase()
 
+        if(validacoes.validarCancelar(sexo)){
+            if(validacoes.validarVazio(sexo) && validacoes.validarSexo(sexo)){
+                return sexo
+            } else {
+                return entradas.solicitarSexo()
+            }
+        } else {
+            return
+        }
     }
 }
