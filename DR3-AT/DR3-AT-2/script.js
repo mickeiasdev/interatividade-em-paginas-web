@@ -20,6 +20,46 @@ const endereco = {
 
 // criar funcoes de solicitacao...
 
-const numeroDeAlunos = entradas.solicitarNumeros();
-if(numeroDeAlunos){
+const criacao = {
+    solicitarNumeroDeAlunos: function() {
+        const numeroDeAlunos = prompt("Digite a quantidade de alunos da instituicao: [764]");
+        if(validacoes.validarCancelar(numeroDeAlunos)){
+            if(validacoes.validarVazio(numeroDeAlunos) && validacoes.validarNumero(numeroDeAlunos)){
+                return numeroDeAlunos
+            } else {
+                return this.solicitarNumeroDeAlunos()
+            }
+        }
+    },
+
+    solicitarNomeDiretor: function() {
+        const nome = prompt("Digite o nome do diretor: [mickeias coelho]");
+
+        if(validacoes.validarCancelar(nome)) {
+            if(validacoes.validarVazio(nome) && validacoes.validarTamanhoMin(nome)) {
+                validacoes.corrigirNome(nome)
+                return nome
+            } else {
+                return this.solicitarNomeDiretor()
+            }
+        } else {
+            return;
+        }
+    },
+
+    solicitarEnderecoInstituicao: function() {
+        const endereco = prompt("Digite o endereco da instituicao: [rua machado de assis]");
+
+        if(validacoes.validarCancelar(endereco)) {
+            if(validacoes.validarVazio(endereco) && validacoes.validarTamanhoMin(endereco)) {
+                validacoes.corrigirNome(endereco)
+                return endereco
+            } else {
+                return this.solicitarEnderecoInstituicao()
+            }
+        } else {
+            return;
+        }
+    },
+    
 }

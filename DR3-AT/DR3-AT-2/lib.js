@@ -97,8 +97,6 @@ const validacoes = {
                 return item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
             }
         })
-    
-        alert(nomesCorrigidos.join(" "));
     }
 }
 
@@ -106,14 +104,14 @@ const validacoes = {
 
 const entradas = {
     solicitarNome: function() {
-        const nome = prompt("Digite seu nome:");
+        const nome = prompt("Digite seu nome e sobrenome: [mickeias coelho]");
 
         if(validacoes.validarCancelar(nome)) {
             if(validacoes.validarVazio(nome) && validacoes.validarTamanhoMin(nome)) {
-                validacoes.corrigirNome()
+                validacoes.corrigirNome(nome)
                 return nome
             } else {
-                return entradas.solicitarNome()
+                return this.solicitarNome()
             }
         } else {
             return;
@@ -121,13 +119,13 @@ const entradas = {
     },
 
     solicitarIdade: function() {
-        const idade = prompt("Digite sua idade:");
+        const idade = prompt("Digite sua idade: [21]");
 
         if(validacoes.validarCancelar(idade)) {
             if(validacoes.validarVazio(idade) && validacoes.validarNumeroInteiroPositivo(idade)) {
                 return idade
             } else {
-                return entradas.solicitarIdade()
+                return this.solicitarIdade()
             }
         } else {
             return;
@@ -142,7 +140,7 @@ const entradas = {
                 email.charAt(0).toLocaleUpperCase()
                 return email
             } else {
-                return entradas.solicitarEmail()
+                return this.solicitarEmail()
             }
         } else {
             return
@@ -156,7 +154,21 @@ const entradas = {
             if(validacoes.validarVazio(sexo) && validacoes.validarSexo(sexo)){
                 return sexo
             } else {
-                return entradas.solicitarSexo()
+                return this.solicitarSexo()
+            }
+        } else {
+            return
+        }
+    },
+
+    solicitarAnoFundacao: function() {
+        const numero = prompt("Digite o ano de fundacao: [1997]")
+
+        if(validacoes.validarCancelar(numero)){
+            if(validacoes.validarVazio(numero) && validacoes.validarNumero(numero)) {
+                return numero
+            } else {
+                return this.solicitarAnoFundacao()
             }
         } else {
             return
