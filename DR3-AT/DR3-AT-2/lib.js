@@ -76,6 +76,18 @@ const validacoes = {
         return true
     },
 
+    validarRua: function(valor) {
+        this.validarVazio(valor);
+        // usuario, arroba, dominio, pelomenos dois caracteres para o finalizar 
+        const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]{2,}$/
+        if(!regexEmail.test(valor)) {
+            alert("Voce digitou um email invalido.")
+            return false
+        }
+        valor.toLowerCase()
+        return true
+    },
+
     validarSexo: function(valor) {
         this.validarVazio(valor);
         this.validarTamanhoMax(valor, 1)    

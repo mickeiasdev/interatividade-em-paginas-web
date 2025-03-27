@@ -14,7 +14,7 @@ const escola = {
 
 const endereco = {
     rua: this.rua,
-    bairro: this.bairrode,
+    bairro: this.bairro,
     cidade: this.cidade,
 }
 
@@ -48,18 +48,26 @@ const criacao = {
     },
 
     solicitarEnderecoInstituicao: function() {
-        const endereco = prompt("Digite o endereco da instituicao: [rua machado de assis]");
+        function bairro(){
+            const bairro = prompt("Digite o bairro da instituicao: [machado de assis]");
 
-        if(validacoes.validarCancelar(endereco)) {
-            if(validacoes.validarVazio(endereco) && validacoes.validarTamanhoMin(endereco)) {
-                validacoes.corrigirNome(endereco)
-                return endereco
+            if(validacoes.validarCancelar(bairro)) {
+                if(validacoes.validarVazio(bairro) && validacoes.validarTamanhoMin(bairro)) {
+                    validacoes.corrigirNome(bairro)
+                    
+                    const regexRua = /^rua\s.{3,}$/
+                    const rua = prompt("Digite a rua da instituicao: [rua machado de assis]");
+                    
+
+
+                } else {
+                    return this.bairro()
+                }
             } else {
-                return this.solicitarEnderecoInstituicao()
+                return;
             }
-        } else {
-            return;
         }
+        
     },
     
 }
