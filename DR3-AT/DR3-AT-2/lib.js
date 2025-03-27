@@ -15,7 +15,7 @@ const validacoes = {
         return true
     },
 
-    validarTamanhoMin(valor, min=3) {
+    validarTamanhoMin: function(valor, min=3) {
         if(valor.length < min) {
             alert(`Voce nao atingiu o numero minimo de ${min} caracteres`)
             return false
@@ -23,7 +23,7 @@ const validacoes = {
         return true
     },
 
-    validarTamanhoMax(valor, max=25) {
+    validarTamanhoMax: function(valor, max=25) {
         if(valor.length > max) {
             alert(`Voce ultrapassou o numero maximo de ${max} caracteres`)
             return false
@@ -32,8 +32,8 @@ const validacoes = {
     },
 
     validarNumero: function(valor) {
-        this.validarVazio(valor)
-        valor.replace(",", ".")
+        if(!this.validarVazio(valor)) return false
+        valor = valor.replace(",", ".")
         if(isNaN(valor)){
             alert("O programa espera um numero como entrada.")
             return false
@@ -72,7 +72,7 @@ const validacoes = {
             alert("Voce digitou um email invalido.")
             return false
         }
-        valor.charAt(0).toUpperCase() + valor.slice(1).toLowerCase();
+        valor = valor.charAt(0).toUpperCase() + valor.slice(1).toLowerCase();
         return true
     },
 
@@ -101,9 +101,9 @@ const validacoes = {
     corrigirNome: function(nome) {
         // Isso faz com que qualquer quantidade de espaços seguidos seja considerada como um único separador.
         const nomes = nome.trim().split(/\s+/).map(item => item.trim());
-    
+
         let nomesCorrigidos = nomes.map((item, i) => {
-            if(["da", "de", "do"].includes(item.toLowerCase()) && i !== 0) {
+            if(["da", "de", "do", "das", "dos"].includes(item.toLowerCase()) && i !== 0) {
                 return item.toLowerCase();
             } else {
                 return item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
@@ -121,59 +121,46 @@ const entradas = {
     solicitarNome: function() {
         const nome = prompt("Digite seu nome e sobrenome: [mickeias coelho]");
 
-        if(validacoes.validarCancelar(nome)) {
+        if(!validacoes.validarCancelar(nome)) return; 
             if(validacoes.validarVazio(nome) && validacoes.validarTamanhoMin(nome)) {
-                validacoes.corrigirNome(nome)
-                return nome
+                return validacoes.corrigirNome(nome)
             } else {
                 return this.solicitarNome()
             }
-        } else {
-            return;
-        }
     },
 
     solicitarIdade: function() {
         const idade = prompt("Digite sua idade: [21]");
 
-        if(validacoes.validarCancelar(idade)) {
+        if(validacoes.validarCancelar(idade))  return;
             if(validacoes.validarVazio(idade) && validacoes.validarNumeroInteiroPositivo(idade)) {
                 return idade
             } else {
                 return this.solicitarIdade()
             }
-        } else {
-            return;
-        }
     },
 
     solicitarEmail: function() {
         const email = prompt("Digite seu email: [exemplo@dominio.com]")
     
-        if(validacoes.validarCancelar(email)){
+        if(validacoes.validarCancelar(email)) return;
             if(validacoes.validarVazio(email) && validacoes.validarEmail(email)){
                 email.charAt(0).toLocaleUpperCase()
                 return email
             } else {
                 return this.solicitarEmail()
             }
-        } else {
-            return
-        }
     },
 
     solicitarSexo: function() {
         const sexo = prompt("Digite seu sexo: [M/F]").toUpperCase()
 
-        if(validacoes.validarCancelar(sexo)){
+        if(validacoes.validarCancelar(sexo)) return;
             if(validacoes.validarVazio(sexo) && validacoes.validarSexo(sexo)){
                 return sexo
             } else {
                 return this.solicitarSexo()
             }
-        } else {
-            return
-        }
     },
     
     solicitarEnderecoInstituicao: function() {
@@ -222,6 +209,7 @@ const entradas = {
 
     solicitarNumeroDeAlunos: function() {
         const numeroDeAlunos = prompt("Digite a quantidade de alunos da instituicao: [764]");
+
         if(!validacoes.validarCancelar(numeroDeAlunos)) return;
             if(validacoes.validarVazio(numeroDeAlunos) && validacoes.validarNumero(numeroDeAlunos)){
                 return numeroDeAlunos
