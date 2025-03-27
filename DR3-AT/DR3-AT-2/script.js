@@ -5,17 +5,26 @@
 
 // O endereço é um objeto que possui as propriedades: rua, bairro e cidade.
 
-const escola = {
-    numeroDeAlunos: this.numeroDeAlunos,
-    diretor: this.diretor,
-    anoFundacao: this.anoFundacao,
-    endereco: this.endereco
-}
+const escola = {}
 
-const endereco = {
-    rua: this.rua,
-    bairro: this.bairro,
-    cidade: this.cidade,
-}
+const numeroDeAlunos = entradas.solicitarNumeroDeAlunos()
+if(numeroDeAlunos) escola.numeroDeAlunos = numeroDeAlunos;
 
-entradas.solicitarEnderecoInstituicao()
+const nomeDiretor = entradas.solicitarNomeDiretor()
+if(nomeDiretor) escola.nomeDiretor = nomeDiretor
+
+const anoFundacao = entradas.solicitarAnoFundacao()
+if(anoFundacao) escola.anoFundacao = anoFundacao
+
+const endereco = entradas.solicitarEnderecoInstituicao()
+if(endereco) escola.endereco = endereco
+
+console.log(`
+Alunos: ${escola.numeroDeAlunos}
+Diretor: ${escola.diretor}
+Ano: ${escola.anoFundacao}
+   
+Endereco
+Rua: ${escola.endereco.rua}
+Bairro: ${escola.endereco.bairro}
+Cidade: ${escola.endereco.cidade}`)

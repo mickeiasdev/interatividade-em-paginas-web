@@ -216,48 +216,41 @@ const entradas = {
         if(!(endereco.bairro = bairro())) return;
         if(!(endereco.rua = rua())) return;
         if(!(endereco.cidade = cidade())) return;
-        
-        console.log(endereco.bairro, endereco.rua, endereco.cidade)
+
+        return endereco
     },
 
     solicitarNumeroDeAlunos: function() {
         const numeroDeAlunos = prompt("Digite a quantidade de alunos da instituicao: [764]");
-        if(validacoes.validarCancelar(numeroDeAlunos)){
+        if(!validacoes.validarCancelar(numeroDeAlunos)) return;
             if(validacoes.validarVazio(numeroDeAlunos) && validacoes.validarNumero(numeroDeAlunos)){
                 return numeroDeAlunos
             } else {
                 return this.solicitarNumeroDeAlunos()
             }
-        }
     },
 
     solicitarNomeDiretor: function() {
         const nome = prompt("Digite o nome do diretor: [mickeias coelho]");
 
-        if(validacoes.validarCancelar(nome)) {
+        if(!validacoes.validarCancelar(nome)) return;
             if(validacoes.validarVazio(nome) && validacoes.validarTamanhoMin(nome)) {
                 validacoes.corrigirNome(nome)
                 return nome
             } else {
                 return this.solicitarNomeDiretor()
             }
-        } else {
-            return;
-        }
     },
 
     solicitarAnoFundacao: function() {
         const numero = prompt("Digite o ano de fundacao: [1997]")
 
-        if(validacoes.validarCancelar(numero)){
+        if(!validacoes.validarCancelar(numero)) return;
             if(validacoes.validarVazio(numero) && validacoes.validarNumero(numero)) {
                 return numero
             } else {
                 return this.solicitarAnoFundacao()
             }
-        } else {
-            return
-        }
     },
     
 }
