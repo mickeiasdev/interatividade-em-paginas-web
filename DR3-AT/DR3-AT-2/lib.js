@@ -72,19 +72,19 @@ const validacoes = {
             alert("Voce digitou um email invalido.")
             return false
         }
-        valor.toLowerCase()
+        valor.charAt(0).toUpperCase() + valor.slice(1).toLowerCase();
         return true
     },
 
     validarRua: function(valor) {
         this.validarVazio(valor);
-        // usuario, arroba, dominio, pelomenos dois caracteres para o finalizar 
-        const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]{2,}$/
-        if(!regexEmail.test(valor)) {
-            alert("Voce digitou um email invalido.")
+        // iniciar com "rua" e ter um complemento de plmns 3 caracteres 
+        const regexRua = /^rua\s.{3,}$/
+        if(!regexRua.test(valor)) {
+            alert("Voce digitou uma rua invalida.")
             return false
         }
-        valor.toLowerCase()
+        this.corrigirNome(valor)
         return true
     },
 
@@ -109,7 +109,10 @@ const validacoes = {
                 return item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
             }
         })
+        return nomesCorrigidos.join(" ");
     }
+
+    
 }
 
 //-----------------------------------------------------------------------------------------------------------
@@ -172,6 +175,76 @@ const entradas = {
             return
         }
     },
+    
+    solicitarEnderecoInstituicao: function() {
+        const endereco = {
+            bairro: this.bairro,
+            rua: this.rua,
+            cidade: this.cidade
+        }
+
+        function bairro(){
+            while (true) {
+                let bairro = prompt("Digite o bairro da instituição: [machado de assis]");
+                if (!validacoes.validarCancelar(bairro)) return;
+                if (validacoes.validarVazio(bairro) && validacoes.validarTamanhoMin(bairro)) {
+                    return validacoes.corrigirNome(bairro)
+                }
+            }
+        }
+        
+        function rua() {
+            while (true) {
+                let rua = prompt("Digite a rua da instituição: [rua carlos drummond de andrade]");
+                if (!validacoes.validarCancelar(rua)) return;
+                if (validacoes.validarVazio(rua) && validacoes.validarTamanhoMin(rua) && validacoes.validarRua(rua)) {
+                    return validacoes.corrigirNome(rua)
+                 } 
+            }
+        }
+            
+            function cidade() {
+                while (true) {
+                   const cidade = prompt("Digite a cidade da instituicao: [cascavel]");
+                   if(!validacoes.validarCancelar(cidade)) return;
+                   if(validacoes.validarVazio(cidade) && validacoes.validarTamanhoMin(cidade)) {
+                        return validacoes.corrigirNome(cidade)
+                    }
+                }
+            }
+
+        if(!(endereco.bairro = bairro())) return;
+        if(!(endereco.rua = rua())) return;
+        if(!(endereco.cidade = cidade())) return;
+        
+        console.log(endereco.bairro, endereco.rua, endereco.cidade)
+    },
+
+    solicitarNumeroDeAlunos: function() {
+        const numeroDeAlunos = prompt("Digite a quantidade de alunos da instituicao: [764]");
+        if(validacoes.validarCancelar(numeroDeAlunos)){
+            if(validacoes.validarVazio(numeroDeAlunos) && validacoes.validarNumero(numeroDeAlunos)){
+                return numeroDeAlunos
+            } else {
+                return this.solicitarNumeroDeAlunos()
+            }
+        }
+    },
+
+    solicitarNomeDiretor: function() {
+        const nome = prompt("Digite o nome do diretor: [mickeias coelho]");
+
+        if(validacoes.validarCancelar(nome)) {
+            if(validacoes.validarVazio(nome) && validacoes.validarTamanhoMin(nome)) {
+                validacoes.corrigirNome(nome)
+                return nome
+            } else {
+                return this.solicitarNomeDiretor()
+            }
+        } else {
+            return;
+        }
+    },
 
     solicitarAnoFundacao: function() {
         const numero = prompt("Digite o ano de fundacao: [1997]")
@@ -185,5 +258,6 @@ const entradas = {
         } else {
             return
         }
-    }
+    },
+    
 }
