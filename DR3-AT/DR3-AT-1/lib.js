@@ -95,8 +95,7 @@ const validacoes = {
 
   validarSexo: function (valor) {
     this.validarVazio(valor);
-    this.validarTamanhoMax(valor, 1);
-    if (valor !== "m" && valor !== "f") {
+    if (valor.toLowerCase() !== "m" && valor.toLowerCase() !== "f") {
       alert("Valor invalido.");
       return false;
     }
@@ -127,62 +126,6 @@ const validacoes = {
 //-----------------------------------------------------------------------------------------------------------
 
 const entradas = {
-  solicitarNome: function () {
-    let nome = prompt("Digite seu nome e sobrenome: [mickeias coelho]");
-
-    while (!validacoes.validarCancelar(nome)) {
-      nome = prompt("Digite seu nome e sobrenome: [mickeias coelho]");
-    }
-    if (validacoes.validarVazio(nome) && validacoes.validarTamanhoMin(nome)) {
-      return validacoes.corrigirNome(nome);
-    } else {
-      return this.solicitarNome();
-    }
-  },
-
-  solicitarIdade: function () {
-    let idade = prompt("Digite sua idade: [21]");
-
-    while (!validacoes.validarCancelar(idade)) {
-      idade = prompt("Digite sua idade: [21]");
-    }
-    if (
-      validacoes.validarVazio(idade) &&
-      validacoes.validarNumeroInteiroPositivo(idade)
-    ) {
-      return idade;
-    } else {
-      return this.solicitarIdade();
-    }
-  },
-
-  solicitarEmail: function () {
-    let email = prompt("Digite seu email: [exemplo@dominio.com]");
-
-    while (!validacoes.validarCancelar(email)) {
-      email = prompt("Digite seu email: [exemplo@dominio.com]");
-    }
-    if (validacoes.validarVazio(email) && validacoes.validarEmail(email)) {
-      email.charAt(0).toLocaleUpperCase();
-      return email;
-    } else {
-      return this.solicitarEmail();
-    }
-  },
-
-  solicitarSexo: function () {
-    let sexo = prompt("Digite seu sexo: [M/F]").toUpperCase();
-
-    while (!validacoes.validarCancelar(sexo)) {
-      sexo = prompt("Digite seu sexo: [M/F]").toUpperCase();
-    }
-    if (validacoes.validarVazio(sexo) && validacoes.validarSexo(sexo)) {
-      return sexo;
-    } else {
-      return this.solicitarSexo();
-    }
-  },
-
   solicitarEnderecoInstituicao: function () {
     const endereco = {
       bairro: this.bairro,
