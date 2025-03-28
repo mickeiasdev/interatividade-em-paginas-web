@@ -6,9 +6,7 @@
 // O endereço é um objeto que possui as propriedades: rua, bairro e cidade.
 
 const dados = {
-    solicitarEnderecoInstituicao: function () {
-    
-
+  solicitarEnderecoInstituicao: function () {
     function bairro() {
       while (true) {
         let bairro = prompt(
@@ -37,10 +35,7 @@ const dados = {
             "Digite a rua da instituição: [rua carlos drummond de andrade]"
           );
         }
-        if (
-          validacoes.validarVazio(rua) &&
-          validacoes.validarRua(rua)
-        ) {
+        if (validacoes.validarVazio(rua) && validacoes.validarRua(rua)) {
           return validacoes.corrigirNome(rua);
         }
       }
@@ -64,11 +59,8 @@ const dados = {
     const endereco = {
       bairro: bairro(),
       rua: rua(),
-      cidade: cidade()
+      cidade: cidade(),
     };
-
-    return endereco;
-  },
 
     return endereco;
   },
@@ -135,16 +127,10 @@ const dados = {
 const escola = {};
 
 if ((escola.numeroDeAlunos = dados.solicitarNumeroDeAlunos())) {
-  console.log("if 1");
   if ((escola.diretor = dados.solicitarNomeDiretor())) {
-    console.log("if 2");
     if ((escola.anoFundacao = dados.solicitarAnoFundacao())) {
-      console.log("if 3");
-      console.log("Endereço retornado:", escola.endereco);
-      console.log("Tipo do endereço:", typeof escola.endereco);
       // objeto de endereco e criado dentro da funcao
       if ((escola.endereco = dados.solicitarEnderecoInstituicao())) {
-        console.log("if 4");
         alert(`Alunos: ${escola.numeroDeAlunos}
 Diretor: ${escola.diretor}
 Ano: ${escola.anoFundacao}
