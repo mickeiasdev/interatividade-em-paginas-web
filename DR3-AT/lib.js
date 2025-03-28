@@ -20,7 +20,7 @@ const validacoes = {
     return true;
   },
 
-  validarTamanhoMin: function (valor, min = 3) {
+  validarTamanhoMin: function (valor, min = 5) {
     if (valor.length < min) {
       alert(`Voce nao atingiu o numero minimo de ${min} caracteres`);
       return false;
