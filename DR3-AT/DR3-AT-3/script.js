@@ -5,22 +5,22 @@
 // que tenha essas propriedades e defina o valor das propriedades
 // conforme os valores digitados pelo usuário.
 
-function localizacao(pais, continente, capital) {
-  this.pais = pais;
+function localizacao(continente, pais, capital) {
   this.continente = continente;
+  this.pais = pais;
   this.capital = capital;
 }
 
-function solicitarContinente(continente) {
+function solicitarContinente() {
   let continente = prompt("Digite o nome do seu continente:");
 
   while (!validacoes.validarCancelar(continente)) {
     continente = prompt("Digite o nome do seu continente:");
   }
-  if (validacoes.validarVazio(continente) && validacoes.validarContinente(continente)) {
+  if (validacoes.validarVazio(continente)) {
     return validacoes.corrigirNome(continente)
   } else {
-    return this.solicitarPais()
+    return this.solicitarContinente()
   }
 }
 
@@ -30,7 +30,7 @@ function solicitarPais(continente) {
   while (!validacoes.validarCancelar(pais)) {
     pais = prompt("Digite o nome do seu pais:");
   }
-  if (validacoes.validarVazio(pais) && validacoes.validarPais(pais)) {
+  if (validacoes.validarVazio(pais)) {
     return validacoes.corrigirNome(pais)
   } else {
     return this.solicitarPais()
@@ -43,11 +43,17 @@ function solicitarCapital(pais) {
   while (!validacoes.validarCancelar(capital)) {
     capital = prompt("Digite o nome do seu capital:");
   }
-  if (validacoes.validarVazio(capital) && validacoes.validarCapital(capital)) {
+  if (validacoes.validarVazio(capital)) {
     return validacoes.corrigirNome(capital)
   } else {
-    return this.solicitarPais()
+    return this.solicitarCapital()
   }
 }
 
-// const minhaLoc = new localizacao(pais, continete, capital)
+dados = new localizacao(solicitarContinente(), solicitarPais(), solicitarCapital())
+
+if(dados){
+  alert(`Continente: ${dados.continente}\nPais: ${dados.pais}\nCapital: ${dados.capital}`)
+} else {
+  alert(dados)
+}

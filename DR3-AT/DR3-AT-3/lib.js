@@ -8,18 +8,18 @@ const validacoes = {
   },
 
   validarCancelar: function (valor) {
-    // Se o valor for null (indicando que o usuário clicou em "Cancelar")
     if (valor === null) {
       const confirmacao = confirm("Você tem certeza que deseja cancelar?");
       if (confirmacao) {
         alert("Programa encerrado.");
-        return true; // Se o usuário confirmar que quer cancelar, o programa é interrompido
+        return true;
       } else {
-        return false; // Se o usuário não confirmar, continua normalmente
+        return false;
       }
     }
-    return true; // Se não for cancelamento, continua normalmente
+    return true;
   },
+
   validarTamanhoMin: function (valor, min = 3) {
     if (valor.length < min) {
       alert(`Voce nao atingiu o numero minimo de ${min} caracteres`);
@@ -47,9 +47,7 @@ const validacoes = {
   },
 
   validarNumeroInteiro: function (valor) {
-    if (!this.validarNumero(valor)) {
-      return false;
-    }
+    if (!this.validarNumero(valor)) return false;
     valor = Number(valor);
     if (!Number.isInteger(valor)) {
       alert("O programa espera um numero inteiro como entrada.");
@@ -59,9 +57,7 @@ const validacoes = {
   },
 
   validarNumeroInteiroPositivo: function (valor) {
-    if (!this.validarNumeroInteiro(valor)) {
-      return false;
-    }
+    if (!this.validarNumeroInteiro(valor)) return false;
     if (valor < 0) {
       alert("O programa espera um numero inteiro positivo como entrada.");
       return false;
@@ -70,7 +66,7 @@ const validacoes = {
   },
 
   validarEmail: function (valor) {
-    this.validarVazio(valor);
+    if (!validacoes.validarVazio(valor)) return false;
     // usuario, arroba, dominio, pelomenos dois caracteres para o finalizar
     const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]{2,}$/;
     if (!regexEmail.test(valor)) {
@@ -82,7 +78,7 @@ const validacoes = {
   },
 
   validarRua: function (valor) {
-    this.validarVazio(valor);
+    if (!validacoes.validarVazio(valor)) return false;
     // iniciar com "rua" e ter um complemento de plmns 3 caracteres
     const regexRua = /^rua\s.{3,}$/;
     if (!regexRua.test(valor)) {
@@ -94,7 +90,7 @@ const validacoes = {
   },
 
   validarSexo: function (valor) {
-    this.validarVazio(valor);
+    if (!validacoes.validarVazio(valor)) return false;
     this.validarTamanhoMax(valor, 1);
     if (valor !== "m" && valor !== "f") {
       alert("Valor invalido.");
@@ -122,12 +118,6 @@ const validacoes = {
     });
     return nomesCorrigidos.join(" ");
   },
-
-  // validarContinente: function (continente) {},
-
-  // validarPais: function (pais) {},
-
-  // validarCapital: function (capital) {}
   
 };
 
