@@ -122,6 +122,13 @@ const validacoes = {
     });
     return nomesCorrigidos.join(" ");
   },
+
+  // validarContinente: function (continente) {},
+
+  // validarPais: function (pais) {},
+
+  // validarCapital: function (capital) {}
+  
 };
 
 //-----------------------------------------------------------------------------------------------------------
