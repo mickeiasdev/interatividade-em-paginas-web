@@ -7,8 +7,6 @@
 
 const dados = {
   solicitarEnderecoInstituicao: function () {
-    const endereco = {};
-
     function bairro() {
       while (true) {
         let bairro = prompt(
@@ -22,6 +20,8 @@ const dados = {
           validacoes.validarVazio(bairro) &&
           validacoes.validarTamanhoMin(bairro)
         ) {
+          console.log(bairro);
+          console.log(typeof bairro);
           return validacoes.corrigirNome(bairro);
         }
       }
@@ -38,6 +38,8 @@ const dados = {
           );
         }
         if (validacoes.validarVazio(rua) && validacoes.validarRua(rua)) {
+          console.log(rua);
+          console.log(typeof rua);
           return validacoes.corrigirNome(rua);
         }
       }
@@ -54,14 +56,18 @@ const dados = {
           validacoes.validarTamanhoMin(cidade) &&
           validarStringSemNumero(cidade)
         ) {
+          console.log(cidade);
+          console.log(typeof cidade);
           return validacoes.corrigirNome(cidade);
         }
       }
     }
 
-    endereco.bairro = bairro();
-    endereco.rua = rua();
-    endereco.cidade = cidade();
+    const endereco = {
+      bairro: bairro(),
+      rua: rua(),
+      cidade: cidade(),
+    };
 
     return endereco;
   },
@@ -76,10 +82,10 @@ const dados = {
         "Digite a quantidade de alunos da instituição: [764]"
       );
     }
-    if (
-      validacoes.validarNumero(numeroDeAlunos) &&
-      validacoes.validarNumeroInteiroPositivo(numeroDeAlunos)
-    ) {
+
+    if (validacoes.validarNumeroInteiroPositivo(numeroDeAlunos)) {
+      console.log(numeroDeAlunos);
+      console.log(typeof numeroDeAlunos);
       return numeroDeAlunos;
     } else {
       return this.solicitarNumeroDeAlunos();
@@ -97,8 +103,9 @@ const dados = {
       validacoes.validarTamanhoMin(nome) &&
       validacoes.validarStringSemNumero(nome)
     ) {
-      validacoes.corrigirNome(nome);
-      return nome;
+      console.log(nome);
+      console.log(typeof nome);
+      return validacoes.corrigirNome(nome);
     } else {
       return this.solicitarNomeDiretor();
     }
@@ -112,10 +119,11 @@ const dados = {
     }
 
     if (
-      validacoes.validarVazio(numero) &&
       validacoes.validarNumeroInteiroPositivo(numero) &&
       validacoes.validarAnoAtual(numero)
     ) {
+      console.log(numero);
+      console.log(typeof numero);
       return numero;
     } else {
       return this.solicitarAnoFundacao();
@@ -126,10 +134,16 @@ const dados = {
 const escola = {};
 
 if ((escola.numeroDeAlunos = dados.solicitarNumeroDeAlunos())) {
+  console.log("if 1");
   if ((escola.diretor = dados.solicitarNomeDiretor())) {
+    console.log("if 2");
     if ((escola.anoFundacao = dados.solicitarAnoFundacao())) {
+      console.log("if 3");
+      console.log("Endereço retornado:", escola.endereco);
+      console.log("Tipo do endereço:", typeof escola.endereco);
       // objeto de endereco e criado dentro da funcao
       if ((escola.endereco = dados.solicitarEnderecoInstituicao())) {
+        console.log("if 4");
         alert(`Alunos: ${escola.numeroDeAlunos}
 Diretor: ${escola.diretor}
 Ano: ${escola.anoFundacao}

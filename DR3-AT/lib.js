@@ -43,7 +43,6 @@ const validacoes = {
       alert("O programa espera um numero como entrada.");
       return false;
     }
-    valor = Number(valor);
     return true;
   },
 
