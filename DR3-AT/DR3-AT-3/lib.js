@@ -36,6 +36,17 @@ const validacoes = {
     return true;
   },
 
+  validarStringSemNumero: function (valor) {
+    const regex = /\d/;
+
+    if (regex.test(valor)) {
+      alert("A string não pode conter números.");
+      return false;
+    } else {
+      return true;
+    }
+  },
+
   validarNumero: function (valor) {
     if (!this.validarVazio(valor)) return false;
     valor = valor.replace(",", ".");
@@ -58,7 +69,8 @@ const validacoes = {
 
   validarNumeroInteiroPositivo: function (valor) {
     if (!this.validarNumeroInteiro(valor)) return false;
-    if (valor < 0) {
+    
+    if (valor <= 0) {
       alert("O programa espera um numero inteiro positivo como entrada.");
       return false;
     }
@@ -118,7 +130,6 @@ const validacoes = {
     });
     return nomesCorrigidos.join(" ");
   },
-  
 };
 
 //-----------------------------------------------------------------------------------------------------------
@@ -182,9 +193,9 @@ const entradas = {
 
   solicitarEnderecoInstituicao: function () {
     const endereco = {
-      bairro: this.bairro,
-      rua: this.rua,
-      cidade: this.cidade,
+      bairro: "",
+      rua: "",
+      cidade: "",
     };
 
     function bairro() {
@@ -215,11 +226,7 @@ const entradas = {
             "Digite a rua da instituição: [rua carlos drummond de andrade]"
           );
         }
-        if (
-          validacoes.validarVazio(rua) &&
-          validacoes.validarTamanhoMin(rua) &&
-          validacoes.validarRua(rua)
-        ) {
+        if (validacoes.validarVazio(rua) && validacoes.validarRua(rua) ) {
           return validacoes.corrigirNome(rua);
         }
       }
@@ -227,22 +234,22 @@ const entradas = {
 
     function cidade() {
       while (true) {
-        let cidade = prompt("Digite a cidade da instituicao: [cascavel]");
+        let cidade = prompt("Digite a cidade da instituição: [cascavel]");
         while (!validacoes.validarCancelar(cidade)) {
-          cidade = prompt("Digite a cidade da instituicao: [cascavel]");
+          cidade = prompt("Digite a cidade da instituição: [cascavel]");
         }
         if (
           validacoes.validarVazio(cidade) &&
-          validacoes.validarTamanhoMin(cidade)
+          validacoes.validarTamanhoMin(cidade) && validacoes.validarStringSemNumero(cidade)
         ) {
           return validacoes.corrigirNome(cidade);
         }
       }
     }
 
-    if (!(endereco.bairro = bairro())) return;
-    if (!(endereco.rua = rua())) return;
-    if (!(endereco.cidade = cidade())) return;
+    endereco.bairro = bairro();
+    endereco.rua = rua();
+    endereco.cidade = cidade();
 
     return endereco;
   },
@@ -257,7 +264,7 @@ const entradas = {
         "Digite a quantidade de alunos da instituição: [764]"
       );
     }
-    if (validacoes.validarNumero(numeroDeAlunos)) {
+    if (validacoes.validarNumeroInteiroPositivo(numeroDeAlunos)) {
       return numeroDeAlunos;
     } else {
       return this.solicitarNumeroDeAlunos();
@@ -288,6 +295,45 @@ const entradas = {
       return numero;
     } else {
       return this.solicitarAnoFundacao();
+    }
+  },
+
+  solicitarContinente: function () {
+    let continente = prompt("Digite o nome do seu continente:");
+
+    while (!validacoes.validarCancelar(continente)) {
+      continente = prompt("Digite o nome do seu continente:");
+    }
+    if (validacoes.validarVazio(continente)) {
+      return validacoes.corrigirNome(continente);
+    } else {
+      return this.solicitarContinente();
+    }
+  },
+
+  solicitarPais: function () {
+    let pais = prompt("Digite o nome do seu pais:");
+
+    while (!validacoes.validarCancelar(pais)) {
+      pais = prompt("Digite o nome do seu pais:");
+    }
+    if (validacoes.validarVazio(pais)) {
+      return validacoes.corrigirNome(pais);
+    } else {
+      return this.solicitarPais();
+    }
+  },
+
+  solicitarCapital: function () {
+    let capital = prompt("Digite o nome do seu capital:");
+
+    while (!validacoes.validarCancelar(capital)) {
+      capital = prompt("Digite o nome do seu capital:");
+    }
+    if (validacoes.validarVazio(capital)) {
+      return validacoes.corrigirNome(capital);
+    } else {
+      return this.solicitarCapital();
     }
   },
 };

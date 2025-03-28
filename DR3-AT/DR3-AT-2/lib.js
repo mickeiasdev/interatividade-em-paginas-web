@@ -185,9 +185,9 @@ const entradas = {
 
   solicitarEnderecoInstituicao: function () {
     const endereco = {
-      bairro: this.bairro,
-      rua: this.rua,
-      cidade: this.cidade,
+      bairro: "",
+      rua: "",
+      cidade: "",
     };
 
     function bairro() {
@@ -218,11 +218,7 @@ const entradas = {
             "Digite a rua da instituição: [rua carlos drummond de andrade]"
           );
         }
-        if (
-          validacoes.validarVazio(rua) &&
-          validacoes.validarTamanhoMin(rua) &&
-          validacoes.validarRua(rua)
-        ) {
+        if (validacoes.validarVazio(rua) && validacoes.validarRua(rua)) {
           return validacoes.corrigirNome(rua);
         }
       }
@@ -243,9 +239,9 @@ const entradas = {
       }
     }
 
-    if (!(endereco.bairro = bairro())) return;
-    if (!(endereco.rua = rua())) return;
-    if (!(endereco.cidade = cidade())) return;
+    endereco.bairro = bairro();
+    endereco.rua = rua();
+    endereco.cidade = cidade();
 
     return endereco;
   },
@@ -291,6 +287,45 @@ const entradas = {
       return numero;
     } else {
       return this.solicitarAnoFundacao();
+    }
+  },
+
+  solicitarContinente: function () {
+    let continente = prompt("Digite o nome do seu continente:");
+
+    while (!validacoes.validarCancelar(continente)) {
+      continente = prompt("Digite o nome do seu continente:");
+    }
+    if (validacoes.validarVazio(continente)) {
+      return validacoes.corrigirNome(continente);
+    } else {
+      return this.solicitarContinente();
+    }
+  },
+
+  solicitarPais: function () {
+    let pais = prompt("Digite o nome do seu pais:");
+
+    while (!validacoes.validarCancelar(pais)) {
+      pais = prompt("Digite o nome do seu pais:");
+    }
+    if (validacoes.validarVazio(pais)) {
+      return validacoes.corrigirNome(pais);
+    } else {
+      return this.solicitarPais();
+    }
+  },
+
+  solicitarCapital: function () {
+    let capital = prompt("Digite o nome do seu capital:");
+
+    while (!validacoes.validarCancelar(capital)) {
+      capital = prompt("Digite o nome do seu capital:");
+    }
+    if (validacoes.validarVazio(capital)) {
+      return validacoes.corrigirNome(capital);
+    } else {
+      return this.solicitarCapital();
     }
   },
 };
