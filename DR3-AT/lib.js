@@ -47,9 +47,7 @@ const validacoes = {
   },
 
   validarNumeroInteiro: function (valor) {
-    if (!this.validarNumero(valor)) {
-      return false;
-    }
+    if (!this.validarNumero(valor)) return false
     valor = Number(valor);
     if (!Number.isInteger(valor)) {
       alert("O programa espera um numero inteiro como entrada.");
@@ -59,9 +57,7 @@ const validacoes = {
   },
 
   validarNumeroInteiroPositivo: function (valor) {
-    if (!this.validarNumeroInteiro(valor)) {
-      return false;
-    }
+    if (!this.validarNumeroInteiro(valor)) return false
     if (valor < 0) {
       alert("O programa espera um numero inteiro positivo como entrada.");
       return false;
@@ -70,7 +66,7 @@ const validacoes = {
   },
 
   validarEmail: function (valor) {
-    this.validarVazio(valor);
+    if(!this.validarVazio(valor)) return false
     // usuario, arroba, dominio, pelomenos dois caracteres para o finalizar
     const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]{2,}$/;
     if (!regexEmail.test(valor)) {
@@ -81,8 +77,19 @@ const validacoes = {
     return true;
   },
 
+  validarCpf: function(cpf) {
+    if(!this.validarVazio(cpf)) return false;
+    const regex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/
+    if(!regex.test(cpf)) {
+      alert("Voce digitou um CPF invalido.")
+      return false
+    }
+    return true
+    
+  },
+
   validarRua: function (valor) {
-    this.validarVazio(valor);
+    if(!this.validarVazio(valor)) return false
     // iniciar com "rua" e ter um complemento de plmns 3 caracteres
     const regexRua = /^rua\s.{3,}$/;
     if (!regexRua.test(valor)) {
@@ -94,7 +101,7 @@ const validacoes = {
   },
 
   validarSexo: function (valor) {
-    this.validarVazio(valor);
+    if(!this.validarVazio(valor)) return false
     this.validarTamanhoMax(valor, 1);
     if (valor !== "m" && valor !== "f") {
       alert("Valor invalido.");
@@ -104,6 +111,7 @@ const validacoes = {
   },
 
   validarStringSemNumero: function (nome) {
+    if(!this.validarVazio(nome)) return false
     const regex = /\d/; // verificar números (qualquer dígito)
 
     if (regex.test(nome)) {
