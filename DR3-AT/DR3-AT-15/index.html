@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DR3-AT</title>
+    <script src="/DR3-AT/lib.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <!--
+  //  Configuração de formulário
+
+  // Crie um formulário que contenha o campo nome, idade, descrição, interesses (TI e Games) e estado (RJ, SP, MG e ES). 
+
+  // O campo “nome” deve vir preenchido com o texto “José”
+  // Limite o campo “idade” pelo HTML para que não possa ser negativa e o máximo seja 99. 
+  // O campo “descrição” deve conter um texto de exibição inicial “Escreva sobre você”.
+  // Em interesses, os campos são ambos do tipo “checkbox” e a opção “Games” já vem marcada.
+  -->
+  <body>
+    <form action="#">
+      <label for="nome">Nome:</label>
+      <input type="text" name="nome" id="nome" value="Jose"><br><br>
+
+      <label for="idade">Idade:</label>
+      <input type="number" name="idade" id="idade" max="99" min="1"><br><br>
+
+      <label for="descricao">Descricao:</label>
+       <textarea name="descricao" id="descricao" placeholder="Escreva sobre voce..."></textarea><br><br>
+
+      <label for="idade">Idade:</label>
+      <input type="text" name="idade" id="idade"><br><br>
+      
+      <label for="interesses">Interesses:</label>
+      
+      <input type="checkbox" name="interesses" id="interesses-games" checked>
+      <label for="interesses-games">Games</label>
+      
+      <input type="checkbox" name="interesses" id="interesses-ti" >
+      <label for="interesses-ti">TI</label><br><br>
+      
+      <label for="estado">Estado:</label>
+      
+      <input type="radio" name="estado" id="estado-rj">
+      <label for="estado-rj">RJ</label>
+      
+      <input type="radio" name="estado" id="estado-sp">
+      <label for="estado-sp">SP</label>
+      
+      <input type="radio" name="estado" id="estado-mg">
+      <label for="estado-mg">MG</label>
+      
+      <input type="radio" name="estado" id="estado-es">
+      <label for="estado-es">ES</label><br><br>
+      
+      <input type="submit" id="botao" value="Enviar">
+    </form>
+  </body>
+</html>
