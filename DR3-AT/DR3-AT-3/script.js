@@ -13,10 +13,6 @@ class localizacao {
   }
 }
 
-const mensagemContinente = "Digite o seu continente"
-const mensagemPais = "Digite o seu pais"
-const mensagemCapital = "Digite sua capital"
-
 function solicitar(mensagem) {
     let resposta = prompt(mensagem)
     
@@ -32,7 +28,11 @@ function solicitar(mensagem) {
       return solicitar(mensagem)
     }
   }
-  
+
+const mensagemContinente = "Digite o seu continente"
+const mensagemPais = "Digite o seu pais"
+const mensagemCapital = "Digite sua capital"
+
   const continente = solicitar(mensagemContinente)
   if(continente){
     const pais = solicitar(mensagemPais)

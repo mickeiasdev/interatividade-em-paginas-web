@@ -5,7 +5,7 @@
 
 // Para calcular o valor estimado utilize o preço base – 1000 para cada ano entre o atual e o ano do carro.
 
-class carro {
+class Carro {
   constructor(modelo, estado, precoBase, ano) {
     this.modelo = modelo;
     this.estado = estado;
@@ -14,36 +14,48 @@ class carro {
   }
 
   calcular() {
-    alert(`Valor estimado: ${parseFloat(this.precoBase) - 1000}`);
+    const anoAtual = new Date().getFullYear();
+    alert(`  
+      Valor estimado: ${this.precoBase - (anoAtual - this.ano) * 1000}`);
   }
 }
 
-// fazer as solicitacoes separadas
-
-const mensagemModelo = "Digite o modelo do carro:";
-const mensagemEstado = "Digite o estado do carro:";
-const mensagemPrecoBase = "Digite o preço base do carro:";
-const mensagemAno = "Digite o ano do carro:";
-
-function solicitarTxt(mensagem) {
-  let resposta = prompt(mensagem);
+function modelo() {
+  let resposta = prompt("Digite o modelo do carro:");
 
   while (!validacoes.validarCancelar(resposta)) {
-    resposta = prompt(mensagem);
+    resposta = prompt("Digite o modelo do carro:");
   }
 
   if (validacoes.validarVazio(resposta)) {
     return validacoes.corrigirNome(resposta);
   } else {
-    return solicitarTxt(mensagem);
+    return modelo();
   }
 }
 
-function solicitarNum(mensagem) {
-  let resposta = prompt(mensagem);
+function estado() {
+  let resposta = prompt("Digite o estado do carro:");
 
   while (!validacoes.validarCancelar(resposta)) {
-    resposta = prompt(mensagem);
+    resposta = prompt("Digite o estado do carro:");
+  }
+
+  if (
+    validacoes.validarVazio(resposta) &&
+    validacoes.validarStringSemNumero(resposta)
+  ) {
+    return validacoes.corrigirNome(resposta);
+  } else {
+    return estado();
+  }
+}
+
+function precoBase() {
+  let resposta = prompt("Digite o preço base do carro:");
+
+  while (!validacoes.validarCancelar(resposta)) {
+    resposta = prompt("Digite o preço base do carro:");
   }
 
   if (
@@ -52,24 +64,32 @@ function solicitarNum(mensagem) {
   ) {
     return validacoes.corrigirNome(resposta);
   } else {
-    return solicitarNum(mensagem);
+    return precoBase();
   }
 }
 
-const modelo = solicitarTxt(mensagemModelo);
-if (modelo) {
-  const estado = solicitarTxt(mensagemEstado);
-  if (estado) {
-    const precoBase = solicitarNum(mensagemPrecoBase);
-    if (precoBase) {
-      const ano = solicitarNum(mensagemAno);
-      if (ano) {
-        const dados = new carro(modelo, estado, precoBase, ano);
-        alert(
-          `Modelo: ${dados.modelo}\nEstado: ${dados.estado}\nPreco Base: ${dados.precoBase}\nAno: ${dados.ano}`
-        );
-        dados.calcular();
-      }
-    }
+function ano() {
+  let resposta = prompt("Digite o ano do carro:");
+
+  while (!validacoes.validarCancelar(resposta)) {
+    resposta = prompt("Digite o ano do carro:");
+  }
+
+  if (
+    validacoes.validarVazio(resposta) &&
+    validacoes.validarNumeroInteiroPositivo(resposta) &&
+    validacoes.validarAnoAtual(resposta)
+  ) {
+    return validacoes.corrigirNome(resposta);
+  } else {
+    return ano();
   }
 }
+
+let dados = new Carro(modelo(), estado(), precoBase(), ano());
+
+alert(
+  `Modelo: ${dados.modelo}\nEstado: ${dados.estado}\nPreco Base: ${dados.precoBase}\nAno: ${dados.ano}`
+);
+
+dados.calcular();
