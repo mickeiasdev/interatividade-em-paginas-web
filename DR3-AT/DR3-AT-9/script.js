@@ -16,7 +16,7 @@ lista.addEventListener("click", (event) => {
     li.classList.toggle("selecionado");
 
     if (li.textContent.trim().toLowerCase() === "brasil") {
-      li.classList.add("brasil");
+      li.classList.toggle("verde");
     }
   }
 });
