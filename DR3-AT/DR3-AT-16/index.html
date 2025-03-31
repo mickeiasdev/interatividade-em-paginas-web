@@ -3,24 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>DR3-AT</title>
-    <script src="/DR3-AT/lib.js" defer></script>
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <!--
-  // Crie um formulário contendo os campos nome, e-mail e CPF.
-  // Obtenha e valide as informações pelo JavaScript. O campo nome não pode estar vazio,
-  // o campo e-mail deve possuir um “@” e o campo CPF deve possuir 11 ou 14 caracteres. 
+  // Observe arquivo HTML do formulário e crie uma função que informe se o preenchimento do formulário
+  // é válido ou inválido. Não altere o arquivo HTML. A correta validação será referente à:
+
+  // Nome com mais de 3 caracteres e menos de 10.
+  // Pelo menos uma área selecionada.
+  // Retire os caracteres especiais do CPF (. e -) e verifique se possui 11 caracteres.
+  // Verifique se a data de agendamento possui o símbolo “/”.
+  // Transforme o endereço em letras minúsculas e verifique se existe a palavra “rua”.
+  // Link: https://codesandbox.io/p/sandbox/ydhjz8
   -->
   <body>
-    <form action="#">
-      <label for="nome">Nome:</label>
-      <input type="text" name="nome" id="nome"><br><br>
-      <label for="email">Email:</label>
-      <input type="email" name="email" id="email"><br><br>
-      <label for="cpf">CPF:</label>
-      <input type="text" name="cpf" id="cpf"><br><br>
-      <input type="submit" id="botao" value="Enviar">
+    <form>
+      Nome: <input id="nome" type="text" />
+
+      <div class="areas">
+        <span>Área: </span>Recursos Humanos
+        <input id="rh" type="checkbox" /> Segurança
+        <input id="seguranca" type="checkbox"/>
+      </div>
+      CPF: <input id="cpf" type="text" /><br />
+      Data de agendamento: <input id="data" type="text" /><br />
+      Endereço: <input id="endereco" type="text" /><br />
+
+      <button id="btnCadastrar" onclick="validar();">Cadastrar</button>
     </form>
+
+    <script src="script.js"></script>
   </body>
 </html>
