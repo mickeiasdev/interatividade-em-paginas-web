@@ -11,5 +11,5 @@ window.onload = function() {
 };
 
 function verNome(event) {
-  alert("Valor do input: " + event.target.value);
+  alert("Nome: " + event.target.value);
 }
