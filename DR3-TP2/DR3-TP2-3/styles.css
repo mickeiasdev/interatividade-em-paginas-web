@@ -1,0 +1,11 @@
+#square {
+  width: 100px;
+  height: 100px;
+  background-color: #f00;
+  margin: 20px 0;
+  cursor: pointer;
+  border: solid 3px #999;
+}
+
+button {
+}

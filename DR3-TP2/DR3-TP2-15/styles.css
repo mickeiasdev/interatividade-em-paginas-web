@@ -1,0 +1,20 @@
+.red {
+  background-color: red;
+}
+.green {
+  background-color: green;
+}
+table {
+  width: fit-content;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+th,
+td {
+  padding: 5px 20px;
+  text-align: left;
+  border: 1px solid black;
+}
+th {
+  background-color: #f2f2f2;
+}
