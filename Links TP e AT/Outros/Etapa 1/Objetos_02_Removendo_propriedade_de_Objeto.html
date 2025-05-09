@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Removendo Propriedades de Objetos</title>
+</head>
+<body>
+    <h1>Como Remover Propriedades de Objetos em JavaScript</h1>
+    <p id="antes"></p>
+    <p id="depois"></p>
+
+    <script>
+        // Criando um objeto exemplo
+        let pessoa = {
+            nome: "João",
+            idade: 30,
+            profissao: "Engenheiro",
+            cidade: "São Paulo"
+        };
+
+        // Exibindo o objeto antes de remover uma propriedade
+        document.getElementById("antes").innerHTML =
+            `<strong>Antes de remover:</strong><br>` +
+            `Nome: ${pessoa.nome}<br>` +
+            `Idade: ${pessoa.idade}<br>` +
+            `Profissão: ${pessoa.profissao}<br>` +
+            `Cidade: ${pessoa.cidade}`;
+
+        // Removendo a propriedade "cidade"
+        delete pessoa.cidade;
+                delete pessoa.idade;
+
+
+
+        // Exibindo o objeto após remover a propriedade
+        document.getElementById("depois").innerHTML =
+            `<strong>Depois de remover:</strong><br>` +
+            `Nome: ${pessoa.nome}<br>` +
+            `Idade: ${pessoa.idade}<br>` +
+             `Profissão: ${pessoa.profissao}<br>` +
+            `Cidade: ${pessoa.cidade}`;
+
+      // Para remover uma propriedade de um objeto em JavaScript, usamos o operador 'delete'. No exemplo, removemos a propriedade 'cidade' do objeto 'pessoa'.
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibindo Propriedades do Carro</title>
+</head>
+<body>
+    <h1>Informações do Carro</h1>
+
+    <script>
+        // Definindo o objeto carro com novas propriedades e métodos
+        let carro = {
+            marca: 'Toyota',
+            modelo: 'Corolla',
+            ano: 2022,
+            cor: 'preto',
+            motor: '2.0L', // Nova propriedade
+            combustivel: 'Gasolina', // Nova propriedade
+
+            // Método para descrever o carro
+            descricao: function() {
+                return `Este é um ${this.marca} ${this.modelo} do ano ${this.ano} na cor ${this.cor}.`;
+            },
+
+            // Método para exibir o tipo de motor e combustível
+            detalhesTecnicos: function() {
+                return `Motor: ${this.motor}, Combustível: ${this.combustivel}.`;
+            }
+        };
+
+        // Exibindo as propriedades e métodos do carro na página
+        document.write('<p><strong>Marca:</strong> ' + carro.marca + '</p>');
+        document.write('<p><strong>Modelo:</strong> ' + carro.modelo + '</p>');
+        document.write('<p><strong>Ano:</strong> ' + carro.ano + '</p>');
+        document.write('<p><strong>Cor:</strong> ' + carro.cor + '</p>');
+        document.write('<p><strong>Descrição:</strong> ' + carro.descricao() + '</p>');
+        document.write('<p><strong>Detalhes Técnicos:</strong> ' + carro.detalhesTecnicos() + '</p>');
+    </script>
+
+</body>
+</html>

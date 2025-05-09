@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos Aninhados</title>
+</head>
+<body>
+    <h1>Objetos Aninhados</h1>
+    <div id="resultado"></div>
+<br>
+       <div id="resultado2"></div>
+
+    <script>
+        // Criando um objeto principal com objeto aninhado
+        const pessoa1 = {
+            nome: "João",
+            idade: 13,
+            endereco: {
+                cidade: "Rio de Janeiro",
+                estado: "RJ",
+            },
+            time: {
+                bairro: "Tijuca",
+                time: "América"
+            },
+            apresentar: function() {
+                return `Olá, sou ${this.nome}, tenho ${this.idade} anos e moro em ${this.endereco.cidade}, ${this.endereco.estado}, torço pelo ${this.time.time}, o time da ${this.time.bairro}.`;
+            }
+
+
+
+            
+        };
+
+        // Exibindo o resultado na tela
+        document.getElementById("resultado").innerHTML = pessoa1.apresentar();
+    </script>
+</body>
+</html>

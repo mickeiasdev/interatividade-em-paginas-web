@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Métodos DOM</title>
+</head>
+<body>
+<div id="conteudo">
+    <p id="antigo">Texto antigo</p>
+</div>
+
+<script>
+//substituir um elemento → replaceChild().
+
+
+    let novoParagrafo = document.createElement("p");
+    novoParagrafo.innerText = "Texto novo!";
+    let div = document.getElementById("conteudo");
+    let antigo = document.getElementById("antigo");
+    div.replaceChild(novoParagrafo, antigo); // Substitui o texto antigo pelo novo
+</script>
+
+
+
+</body>
+</html>

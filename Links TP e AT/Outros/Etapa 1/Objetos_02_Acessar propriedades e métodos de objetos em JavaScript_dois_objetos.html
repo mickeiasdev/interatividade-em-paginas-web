@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propriedades e Métodos de Objetos</title>
+</head>
+<body>
+    <h1>Acessando Propriedades e Métodos de Objetos</h1>
+    <div id="resultado"></div>
+
+    <script>
+        // Criando dois objetos simples
+        const pessoa1 = {
+            nome: "João",
+            idade: 30,
+            saudacao: function() {
+                return "Olá, meu nome é " + this.nome;
+            }
+        };
+
+        const pessoa2 = {
+            nome: "Maria",
+            idade: 25,
+            saudacao: function() {
+                return "Oi, eu sou " + this.nome;
+            }
+        };
+
+        // Acessando propriedades e métodos dos dois objetos
+        const texto = pessoa1.saudacao() + ", tenho " + pessoa1.idade + " anos.<br>" +
+                      pessoa2.saudacao() + ", tenho " + pessoa2.idade + " anos.";
+
+        // Exibindo o resultado na tela
+        document.getElementById("resultado").innerHTML = texto;
+    </script>
+</body>
+</html>

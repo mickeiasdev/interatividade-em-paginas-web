@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Função Construtora Simples</title>
+</head>
+<body>
+    <h1>Função Construtora Simples</h1>
+    <div id="resultado"></div>
+
+    <script>
+        // Função construtora
+        function Pessoa(nome, idade, instrumento) {
+            this.nome = nome;
+            this.idade = idade;
+            this.instrumento = instrumento;
+            this.apresentar = function() {
+                return `Olá, sou ${this.nome} e tenho ${this.idade} anos, e toco ${this.instrumento}.`;
+            };
+        }
+
+        // Criando um objeto
+        const pessoa1 = new Pessoa("João", 13, "Piano");
+
+        // Exibindo o resultado na tela
+        document.getElementById("resultado").innerHTML = pessoa1.apresentar();
+    </script>
+</body>
+</html>

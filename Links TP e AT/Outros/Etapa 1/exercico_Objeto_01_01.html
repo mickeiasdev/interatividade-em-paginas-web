@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibindo Propriedades de um Objeto</title>
+</head>
+<body>
+    <h1>Exibindo Propriedades de um Objeto</h1>
+    <div id="resultado"></div>
+
+    <script>
+        // Criando um objeto com três propriedades
+        const pessoa = {
+            nome: "João",
+            idade: 30,
+            profissao: "Engenheiro"
+        };
+
+        // Exibindo as propriedades na tela
+        const texto = "Nome: " + pessoa.nome + "<br>" +
+                      "Idade: " + pessoa.idade + "<br>" +
+                      "Profissão: " + pessoa.profissao;
+
+        document.getElementById("resultado").innerHTML = texto;
+    </script>
+</body>
+
+<!--crie um arquivo html com java script básico com um onjeto com tres propriedades e as exiba na tela da forma mais simples-->
+
+</html>

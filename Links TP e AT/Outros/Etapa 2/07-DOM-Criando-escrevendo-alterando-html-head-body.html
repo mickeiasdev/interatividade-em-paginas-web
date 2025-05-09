@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- O JavaScript vai mudar este "en" para "pt-BR" -->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título Original</title> <!-- O JavaScript vai alterar esse título -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Manipulando a tag HTML com JavaScript</h1>
+    <p>O JavaScript alterará a linguagem da página, a cor de fundo e o título.</p>
+    <button onclick="alterarPagina()">Clique para Alterar</button>
+
+    <script>
+        function alterarPagina() {
+            // 1️⃣ Alterar o idioma da página para português
+            document.documentElement.lang = "pt-BR";
+
+            // 2️⃣ Mudar a cor de fundo da página
+            document.body.style.backgroundColor = "#f5d142"; // Amarelo claro
+
+            // 3️⃣ Alterar o título da página dinamicamente
+            document.title = "Título Alterado pelo JavaScript";
+
+            // 4️⃣ Adicionar <meta charset="UTF-8"> dinamicamente no <head>
+            let metaCharset = document.createElement("meta");
+            metaCharset.setAttribute("charset", "UTF-8"); // Define charset UTF-8
+            document.head.appendChild(metaCharset); // Adiciona ao <head>
+        }
+    </script>
+
+</body>
+</html>

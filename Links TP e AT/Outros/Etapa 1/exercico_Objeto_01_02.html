@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibindo Propriedades de um Objeto</title>
+</head>
+<body>
+    <h1>Exibindo Propriedades de um Objeto</h1>
+    <div id="resultado"></div>
+
+    <script>
+        // Criando um objeto com três propriedades
+        const pessoa = {
+            nome: "Marcelo",
+            idade: 51,
+            profissao: prompt("Digite a profissão de Marcelo:")
+        };
+
+        // Exibindo as propriedades na tela
+        const texto = "Nome: " + pessoa.nome + "<br>" +
+                      "Idade: " + pessoa.idade + "<br>" +
+                      "Profissão: " + pessoa.profissao;
+
+        document.getElementById("resultado").innerHTML = texto;
+    </script>
+
+    <!-- crie um arquivo html com java script básico com um objeto com três propriedades (objeto pessoa, propriedades nome: Marcelo Idade:51 e profissão, deverá ser digitado no prompt pelo usuário e as exiba na tela da forma mais simples  -->
+</body>
+</html>

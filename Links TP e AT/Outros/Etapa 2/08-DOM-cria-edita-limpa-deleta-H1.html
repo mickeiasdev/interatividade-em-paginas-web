@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulando H1 com DOM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Manipulando um H1 pelo JavaScript</h2>
+    
+    <button onclick="criarH1()">Criar H1</button>
+    <button onclick="atualizarH1()">Atualizar H1</button>
+    <button onclick="limparH1()">Limpar H1</button>
+    <button onclick="removerH1()">Remover H1</button>
+
+    <script>
+        function criarH1() {
+            let h1 = document.createElement("h1");
+            h1.innerText = "Primeiro H1";
+            document.body.appendChild(h1);
+        }
+
+        function atualizarH1() {
+            document.querySelector("body h1").innerText = "H1 Atualizado";
+            //            document.querySelector("h1").innerText = "H1 Atualizado";
+
+        }
+
+        function limparH1() {
+            document.querySelector("body h1").innerText = "";
+        }
+
+        function removerH1() {
+            document.querySelector("body h1").remove();
+        }
+    </script>
+
+</body>
+</html>

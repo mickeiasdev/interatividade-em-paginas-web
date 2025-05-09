@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Manipulando H2 com DOM</title>
+</head>
+<body>
+  <h2>Sua melhor opção em Dev</h2>
+  <p>Parágrafo 1</p>
+
+  <h2>Sua melhor opção em Dev</h2>
+  <p>Parágrafo 2</p>
+
+  <h2>Sua melhor opção em Dev</h2>
+  <p>Parágrafo 3</p>
+
+  <script>
+    // Obtém todos os elementos <h2> na página
+    const h2s = document.getElementsByTagName('h2');
+        const ps = document.getElementsByTagName('p');
+
+    
+    // Usa innerHTML para adicionar as palavras no início dos <h2>
+    h2s[0].innerHTML = 'HTML ' + h2s[0].innerHTML;
+    h2s[1].innerHTML = 'CSS ' + h2s[1].innerHTML;
+    h2s[2].innerHTML = 'JS ' + h2s[2].innerHTML;
+
+
+    ps[0].innerHTML = 'Substitute';
+    ps[1].innerHTML = 'Substitute';
+    ps[2].innerHTML = 'Substitute';
+  </script>
+</body>
+</html>
+

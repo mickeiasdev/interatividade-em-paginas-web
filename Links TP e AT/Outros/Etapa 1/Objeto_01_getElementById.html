@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo getElementById</title>
+</head>
+<body>
+
+    <h1 id="titulo">Título Original</h1>
+    <button onclick="alterarTitulo()">Alterar Título</button>
+
+    <script>
+        function alterarTitulo() {
+            // Acessa o elemento com id 'titulo' e altera o seu conteúdo
+            document.getElementById('titulo').innerText = 'Título Alterado!';
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo DOM</title>
+</head>
+<body>
+    <h1 id="titulo">Título Principal</h1>
+    <p class="texto">Este é um parágrafo.</p>
+    <ul>
+        <li class="item">Item 1</li>
+        <li class="item">Item 2</li>
+    </ul>
+    <button id="botao">Clique Aqui</button>
+    
+    <script>
+        // Manipulando elementos do DOM com document.
+
+        // 1️⃣ Alterando o texto do título
+        document.getElementById("titulo").innerText = "Título Alterado pelo JavaScript";
+
+        // 2️⃣ Mudando a cor do primeiro parágrafo
+        document.querySelector(".texto").style.color = "blue";
+
+        // 3️⃣ Pegando todos os itens da lista e alterando o segundo item
+        let itens = document.querySelectorAll(".item");
+        itens[1].innerText = "Item 2 Modificado";
+
+        // 4️⃣ Adicionando um novo item à lista
+        let novoItem = document.createElement("li"); // Cria um novo <li>
+        novoItem.innerText = "Item 3 (Adicionado)";
+        document.querySelector("ul").appendChild(novoItem); // Adiciona à lista
+             novoItem.classList.add(".item");
+
+
+        // 5️⃣ Criando um evento de clique no botão
+        document.getElementById("botao").addEventListener("click", function() {
+            alert("Botão Clicado!");
+        });
+
+console.table(itens);
+    </script>
+</body>
+</html>

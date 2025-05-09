@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulando DOM com Classe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            font-size: 18px;
+            background: #f0f0f0;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Lista de Itens</h2>
+    <ul id="minhaLista">
+        <li class="item">Item 1</li>
+        <li class="item">Item 2</li>
+        <li class="item">Item 3</li>
+    </ul>
+
+    <script>
+        // Seleciona todos os itens da lista com a classe "item"
+        let itens = document.querySelectorAll(".item");
+
+        // 1️⃣ Alterar a cor e o tamanho do primeiro item
+        itens[0].style.color = "blue"; // Muda a cor para azul
+        itens[0].style.fontSize = "24px"; // Aumenta o tamanho da fonte
+
+        // 2️⃣ Trocar o texto do segundo item
+        itens[1].innerText = "Item Modificado";
+
+        // 3️⃣ Remover o terceiro item da lista
+        itens[2].remove();
+
+        // 4️⃣ Adicionar um novo terceiro item à lista
+        let novaLi = document.createElement("li");
+        novaLi.innerText = "Novo Item 3"; // Texto do novo item
+        novaLi.classList.add("item"); // Adiciona a mesma classe "item"
+        document.getElementById("minhaLista").appendChild(novaLi); // Adiciona à lista
+    </script>
+
+</body>
+</html>

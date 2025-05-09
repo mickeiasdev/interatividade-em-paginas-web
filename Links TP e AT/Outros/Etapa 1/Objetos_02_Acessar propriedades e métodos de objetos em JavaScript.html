@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acessar Propriedades e Métodos de Objetos</title>
+</head>
+<body>
+    <h1>Acessando Propriedades e Métodos de Objetos</h1>
+    <div id="resultado"></div>
+
+    <script>
+        // Criando um objeto simples
+        const pessoa = {
+            nome: "João",
+            idade: 30,
+            saudacao: function() {
+                return "Olá, meu nome é " + this.nome;
+            }
+        };
+
+        // Acessando propriedades e métodos
+        const texto = "Nome: " + pessoa.nome + "<br>" +
+                      "Idade: " + pessoa.idade + "<br>" +
+                      pessoa.saudacao();
+
+        // Exibindo o resultado na tela
+        document.getElementById("resultado").innerHTML = texto;
+    </script>
+</body>
+</html>

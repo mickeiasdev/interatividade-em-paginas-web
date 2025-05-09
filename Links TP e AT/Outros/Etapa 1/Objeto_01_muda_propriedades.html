@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Objetos em JavaScript</title>
+</head>
+<body>
+    <h1>Exemplos de Objetos em JavaScript</h1>
+
+    <!-- Exemplo 1: Carro -->
+    <h2>Exemplo 1: Carro</h2>
+    <p id="infoCarro"></p>
+    <button onclick="mostrarInfoCarro()">Mostrar Info do Carro</button>
+    <br>
+    <button onclick="mudarCorCarro()">Mudar Cor do Carro</button>
+
+    <hr>
+
+    
+
+    <script>
+        // Exemplo 1: Carro
+        let carro = {
+            marca: 'Toyota',
+            modelo: 'Corolla',
+            ano: 2022,
+            cor: 'preto',
+            exibirInfo: function() {
+                return `Marca: ${this.marca}, Modelo: ${this.modelo}, Ano: ${this.ano}, Cor: ${this.cor}`;
+            },
+            mudarCor: function(novaCor) {
+                this.cor = novaCor;
+                return `A cor do carro foi alterada para ${this.cor}.`;
+            }
+        };
+
+       
+
+        // Funções para exibir informações
+        function mostrarInfoCarro() {
+            document.getElementById('infoCarro').innerText = carro.exibirInfo();
+        }
+
+        function mudarCorCarro() {
+            let novaCor = prompt('Digite a nova cor do carro:');
+            if (novaCor) {
+                document.getElementById('infoCarro').innerText = carro.mudarCor(novaCor);
+            }
+        }
+
+   
+    </script>
+</body>
+</html>

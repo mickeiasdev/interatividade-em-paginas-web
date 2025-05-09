@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibindo Propriedades do Carro</title>
+</head>
+<body>
+    <h1>Informações do Carro</h1>
+    <p><strong>Marca:</strong> <span id="marca"></span></p>
+    <p><strong>Modelo:</strong> <span id="modelo"></span></p>
+    <p><strong>Ano:</strong> <span id="ano"></span></p>
+    <p><strong>Cor:</strong> <span id="cor"></span></p>
+
+    <script>
+        // Definindo o objeto carro
+        let carro = {
+            marca: 'Toyota',
+            modelo: 'Corolla',
+            ano: 2022,
+            cor: 'preto'
+        };
+
+        // Função para exibir as propriedades do carro
+        window.onload = function() {
+            document.getElementById('marca').innerText = carro.marca;
+            document.getElementById('modelo').innerText = carro.modelo;
+            document.getElementById('ano').innerText = carro.ano;
+            document.getElementById('cor').innerText = carro.cor;
+
+        };
+    </script>
+</body>
+</html>

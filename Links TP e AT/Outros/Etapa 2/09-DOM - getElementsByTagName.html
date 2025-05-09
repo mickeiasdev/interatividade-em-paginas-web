@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>getElementsByTagName - DOM</title>
+</head>
+<body>
+  <p>Parágrafo 1</p>
+  <p>Parágrafo 2</p>
+
+  <script>
+    // Obtém todos os elementos <p> na página
+    const paragrafos = document.getElementsByTagName('p');
+    
+    // Altera o estilo e adiciona a tag <strong> em cada parágrafo
+    paragrafos[0].style.color = 'blue';
+    paragrafos[0].innerHTML = '<strong>' + paragrafos[0].innerHTML + '</strong>';
+    
+    paragrafos[1].style.color = 'red';
+    paragrafos[1].style.fontSize = '2em';  // Muda o tamanho da fonte para 2em
+    paragrafos[1].style.textDecoration = 'underline';  
+
+
+    paragrafos[1].innerHTML = '<strong>' + paragrafos[1].innerHTML + '</strong>';
+  </script>
+</body>
+</html>
+

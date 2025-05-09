@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criação de Objetos a Partir de Variáveis</title>
+</head>
+<body>
+    <h1>Exemplo de Criação de Objetos a partir de Variáveis</h1>
+    <div id="resultado"></div>
+
+    <script>
+        // Variáveis existentes
+        let nome = "João";
+        let idade = 30;
+        let profissao = "Engenheiro";
+
+        // Criando um objeto a partir das variáveis
+        const pessoa = { nome, idade, profissao };
+
+        // Exibindo o objeto na tela 
+        document.getElementById("resultado").innerText = 
+            "Nome: " + pessoa.nome + "\n" +
+            "Idade: " + pessoa.idade + "\n" +
+            "Profissão: " + pessoa.profissao;
+    </script>
+</body>
+</html>
