@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTML + CSS</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div
+      id="divId"
+      style="
+        background-color: red;
+        color: black;
+        border: 5px solid blue;
+        width: 150px;
+        height: 150px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        font-weight: bold;
+        box-sizing: border-box;
+      "
+      onclick="alterarDiv()"
+    >
+      Clique aqui para alterar!
+    </div>
+    <script>
+      // No arquivo script.js, siga as etapas abaixo:
+
+      // Ao clicar na "div" de classe “conteudo”.
+      // Modifique o atributo "style", fazendo as modificações:
+      // A `cor de fundo` para azul.
+      // A `letra` para branco.
+      // A `cor de borda` para laranja.
+      // Aumente sua `largura` e `altura` em 2px.
+      // Não faça as alterações `manualmente` no arquivo `index.html`.
+      // Somente pode-se adicionar uma função de click na div.
+      // Utilize o DOM para resolver o exercício.
+      let divPadrao = true;
+
+      let div = document.getElementById("divId");
+
+      function alterarDiv() {
+        if (divPadrao) {
+          div.style.backgroundColor = "blue";
+          div.style.color = "white";
+          div.style.borderColor = "orange";
+          div.style.width = "152px";
+          div.style.height = "152px";
+          div.innerText = "";
+          div.innerText = "Clique aqui para voltar ao padrão!";
+        } else {
+          div.style.backgroundColor = "red";
+          div.style.color = "black";
+          div.style.borderColor = "blue";
+          div.style.width = "150px";
+          div.style.height = "150px";
+          div.innerText = "";
+          div.innerText = "Clique aqui para alterar";
+        }
+
+        divPadrao = !divPadrao;
+      }
+    </script>
+  </body>
+</html>

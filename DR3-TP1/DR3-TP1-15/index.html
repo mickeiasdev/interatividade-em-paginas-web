@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTML + CSS</title>
+  </head>
+  <body>
+    <div>
+      <img
+        src="https://img.freepik.com/fotos-premium/solida-cor-azul-brilhante_179286-28.jpg?semt=ais_hybrid"
+        width="250px"
+        height="250px"
+        id="imgId"
+        onclick="trocarImg()"
+      />
+    </div>
+    <script>
+      // No arquivo script.js, siga as etapas abaixo:
+
+      // Após clicar na tag <img>.
+      // Troque o conteúdo do seu atributo `src`.
+      // Faça aparecer a imagem chamada “cafe.jpg”.
+      // Não faça as alterações `manualmente` no arquivo `index.html`.
+      // Somente pode-se adicionar uma função de click na img
+      // Utilize o DOM para resolver o exercício.
+      let imgPadrao = true;
+      let img = document.getElementById("imgId");
+
+      function trocarImg() {
+        if (imgPadrao) {
+          img.src =
+            "https://img.freepik.com/fotos-premium/solida-cor-azul-brilhante_179286-28.jpg?semt=ais_hybrid";
+        } else {
+          img.src =
+            "https://uploads.metroimg.com/wp-content/uploads/2023/08/27200234/1-1209.jpg";
+        }
+
+        imgPadrao = !imgPadrao;
+      }
+    </script>
+  </body>
+</html>
